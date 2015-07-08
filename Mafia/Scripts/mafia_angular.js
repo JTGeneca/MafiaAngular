@@ -64,6 +64,8 @@ myApp.controller("MafiaCtrl", function ($scope, MafiaRole, $http) {
             $http.post("/API/Mafia", role);
             $scope.roles[currentRoleIndex] = role;
         }
+        var value = $http.get("/API/Mafia");
+        console.log(value);
     }
     $scope.addClick = function () {
         if (currentRoleIndex != null) {

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Linq;
 using System.Security.Claims;
 using MafiaData;
 using MafiaRepository.Interfaces;
@@ -38,15 +39,7 @@ namespace MafiaRepository
 
         public MafiaRole[] GetAllRoles()
         {
-            var i = 0;
-            var ret = new MafiaRole[0];
-            var roles = _repo.All<MafiaRole>();
-            foreach (var role in roles)
-            {
-                ret[i] = role;
-                i++;
-            }
-            return ret;
+            return _repo.All<MafiaRole>().ToArray();
         } 
     }
 }

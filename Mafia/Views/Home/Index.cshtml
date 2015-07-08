@@ -1,0 +1,62 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mafia</title>
+    <link rel="stylesheet" type="text/css" href="/Scripts/mafia.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.1/angular.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"></script>
+    <script src="http://chancejs.com/chance.min.js"></script>
+    <script src="/Scripts/mafia_angular.js"></script>
+</head>
+
+<body ng-app="MyApp" ng-controller="MafiaCtrl">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12 title-bar">
+                <h1>Mafia</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 border">
+                <p>
+                    Roles
+                    <button ng-click="addClick()" class="buttons" id="addBtn">Add</button>
+                </p>
+                <div id="solidLine"></div>
+                <p ng-repeat="item in roles">
+                    <button ng-click="roleClick(item, $index)" ng-class="{'selected': item.isSelected}" class="buttons">
+                        {{item.Name}}
+                    </button>
+                </p>
+            </div>
+            <div class="col-md-4">
+                <p>
+                    Name
+                </p>
+                <input type="text" ng-model="activeRole.Name" />
+                <p>
+                    Card Picture URL
+                </p>
+                <input type="text" ng-model="activeRole.Url" />
+                <br />
+                <button ng-click="saveClick()" class="buttons">Save</button>
+                <button ng-click="deleteClick()" class="buttons">Delete</button>
+            </div>
+            <div class="col-md-4">
+                <img ng-src="{{activeRole.Url}}" src="https://lh4.ggpht.com/C_y-hm52-BG_Dmd2mp1ZzBSHkziGPYZg1EnGwO5NCkkVVRfdg52KEna2MjgSHW4R5-U=w300" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 border">
+                <h2>Suggested Roles</h2>
+                <p>
+                    <button ng-repeat="item in suggest" ng-click ="suggestClick(item)">
+                        {{item.Name}}
+                    </button>
+                </p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,13 +1,13 @@
-﻿using System.Web.Mvc;
+﻿using System.Web.Http.Filters;
 
 namespace Mafia
 {
     public class AllowCrossSiteJsonAttribute : ActionFilterAttribute
     {
-        public override void OnActionExecuting(ActionExecutingContext filterContext)
+        public override void OnActionExecuted(HttpActionExecutedContext filterContext)
         {
-            filterContext.RequestContext.HttpContext.Response.AddHeader("Access-Control-Allow-Origin", "*");
-            base.OnActionExecuting(filterContext);
+            filterContext.Response.Headers.Add("Access-Control-Allow-Origin", "*");
+            base.OnActionExecuted(filterContext);
         }
     }
 }

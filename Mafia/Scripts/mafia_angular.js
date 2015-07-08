@@ -14,44 +14,42 @@ myApp.controller("MafiaCtrl", function ($scope, MafiaRole, $http) {
     $scope.curId = 0;
     $scope.suggest = [];
     var currentRoleIndex = null;
+    role = new MafiaRole("Barman", "/Pictures/Barman.jpg", 0);
+    $scope.suggest.push(role);
+    var role = new MafiaRole("Civilian", "/Pictures/Civilian.jpg", 0);
+    $scope.suggest.push(role);
+    role = new MafiaRole("Cupid", "/Pictures/Cupid.jpg", 0);
+    $scope.suggest.push(role);
+    role = new MafiaRole("Detective", "/Pictures/Detective.jpg", 0);
+    $scope.suggest.push(role);
+    role = new MafiaRole("Doctor", "/Pictures/Doctor.jpg", 0);
+    $scope.suggest.push(role);
+    role = new MafiaRole("Godfather", "/Pictures/Godfather.jpg", 0);
+    $scope.suggest.push(role);
+    role = new MafiaRole("Grandma With A Gun", "/Pictures/GrandmaWithAGun.jpg", 0);
+    $scope.suggest.push(role);
+    role = new MafiaRole("Lawyer", "/Pictures/Lawyer.jpg", 0);
+    $scope.suggest.push(role);
+    role = new MafiaRole("Mafia", "/Pictures/Mafia.jpg", 0);
+    $scope.suggest.push(role);
+    role = new MafiaRole("Magician", "/Pictures/Magician.jpg", 0);
+    $scope.suggest.push(role);
+    role = new MafiaRole("Miller", "/Pictures/Miller.jpg", 0);
+    $scope.suggest.push(role);
+    role = new MafiaRole("Moderator", "/Pictures/Moderator.jpg", 0);
+    $scope.suggest.push(role);
+    role = new MafiaRole("Postman", "/Pictures/Postman.jpg", 0);
+    $scope.suggest.push(role);
+    role = new MafiaRole("RivalMafia", "/Pictures/RivalMafia.jpg", 0);
+    $scope.suggest.push(role);
+    role = new MafiaRole("SerialKiller", "/Pictures/SerialKiller.jpg", 0);
+    $scope.suggest.push(role);
+    role = new MafiaRole("UndercoverCop", "/Pictures/UndercoverCop.jpg", 0);
+    $scope.suggest.push(role);
+    role = new MafiaRole("Vigilante", "/Pictures/Vigilante.jpg", 0);
+    $scope.suggest.push(role);
 
-    $scope.initSuggestions = function () {
-        role = new MafiaRole("Barman", "/Pictures/Barman.jpg", 0);
-        $scope.suggest.push(role);
-        var role = new MafiaRole("Civilian", "/Pictures/Civilian.jpg", 0);
-        $scope.suggest.push(role);
-        role = new MafiaRole("Cupid", "/Pictures/Cupid.jpg", 0);
-        $scope.suggest.push(role);
-        role = new MafiaRole("Detective", "/Pictures/Detective.jpg", 0);
-        $scope.suggest.push(role);
-        role = new MafiaRole("Doctor", "/Pictures/Doctor.jpg", 0);
-        $scope.suggest.push(role);
-        role = new MafiaRole("Godfather", "/Pictures/Godfather.jpg", 0);
-        $scope.suggest.push(role);
-        role = new MafiaRole("Grandma With A Gun", "/Pictures/GrandmaWithAGun.jpg", 0);
-        $scope.suggest.push(role);
-        role = new MafiaRole("Lawyer", "/Pictures/Lawyer.jpg", 0);
-        $scope.suggest.push(role);
-        role = new MafiaRole("Mafia", "/Pictures/Mafia.jpg", 0);
-        $scope.suggest.push(role);
-        role = new MafiaRole("Magician", "/Pictures/Magician.jpg", 0);
-        $scope.suggest.push(role);
-        role = new MafiaRole("Miller", "/Pictures/Miller.jpg", 0);
-        $scope.suggest.push(role);
-        role = new MafiaRole("Moderator", "/Pictures/Moderator.jpg", 0);
-        $scope.suggest.push(role);
-        role = new MafiaRole("Postman", "/Pictures/Postman.jpg", 0);
-        $scope.suggest.push(role);
-        role = new MafiaRole("RivalMafia", "/Pictures/RivalMafia.jpg", 0);
-        $scope.suggest.push(role);
-        role = new MafiaRole("SerialKiller", "/Pictures/SerialKiller.jpg", 0);
-        $scope.suggest.push(role);
-        role = new MafiaRole("UndercoverCop", "/Pictures/UndercoverCop.jpg", 0);
-        $scope.suggest.push(role);
-        role = new MafiaRole("Vigilante", "/Pictures/Vigilante.jpg", 0);
-        $scope.suggest.push(role);
-    }
-    $scope.initSuggestions();
+
     $scope.roleClick = function (role, idx) {
         if (currentRoleIndex != null) {
             $scope.roles[currentRoleIndex].isSelected = false;
@@ -87,7 +85,7 @@ myApp.controller("MafiaCtrl", function ($scope, MafiaRole, $http) {
             $scope.curId--; 
         }
     }
-    $scope.suggestClick = function (role) {
+    $scope.suggestClick = function (role, idx) {
         if (currentRoleIndex != null) {
             $scope.roles[currentRoleIndex].isSelected = false;
         }
@@ -97,11 +95,6 @@ myApp.controller("MafiaCtrl", function ($scope, MafiaRole, $http) {
         currentRoleIndex = $scope.roles.length;
         $scope.roles.push(role);
         $http.post("/API/Mafia", role);
-        for (var i = 0; i < $scope.suggest.length; i++) {
-            if ($scope.suggest[i] == role) {
-                $scope.suggest.splice(i, 1);
-                return;
-            }
-        }
+        $scope.suggest.splice(idx, 1);
     }
 });

@@ -51,7 +51,7 @@
             <div class="col-md-12 border">
                 <h2>Suggested Roles</h2>
                 <p>
-                    <button ng-repeat="item in suggest" ng-click ="suggestClick(item)">
+                    <button ng-repeat="item in suggest" ng-click ="suggestClick(item, $index)">
                         {{item.Name}}
                     </button>
                 </p>

@@ -22,9 +22,9 @@ namespace Mafia.Controllers
         }
 
         // GET: api/Mafia
-        public IEnumerable<string> Get()
+        public MafiaRole[] Get()
         {
-            return new string[] { "value1", "value2" };
+            return MafiaRepo.GetAllRoles();
         }
 
         // GET: api/Mafia/5

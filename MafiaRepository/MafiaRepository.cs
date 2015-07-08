@@ -1,4 +1,6 @@
-﻿using System.ComponentModel;
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
 using System.Security.Claims;
 using MafiaData;
 using MafiaRepository.Interfaces;
@@ -33,5 +35,18 @@ namespace MafiaRepository
         {
             _repo.Delete<MafiaRole>((m)=> m.Id == id);
         }
+
+        public MafiaRole[] GetAllRoles()
+        {
+            var i = 0;
+            var ret = new MafiaRole[0];
+            var roles = _repo.All<MafiaRole>();
+            foreach (var role in roles)
+            {
+                ret[i] = role;
+                i++;
+            }
+            return ret;
+        } 
     }
 }

@@ -6,6 +6,8 @@ myApp.factory("MafiaRole", function () {
         this.Name = name;
         this.Url = imgSrc;
         this.isSelected = true;
+        this.Count = 0;
+        this.playerName = "";
     };
 });
 
@@ -64,8 +66,6 @@ myApp.controller("MafiaCtrl", function ($scope, MafiaRole, $http) {
             $http.post("/API/Mafia", role);
             $scope.roles[currentRoleIndex] = role;
         }
-        var value = $http.get("/API/Mafia");
-        console.log(value);
     }
     $scope.addClick = function () {
         if (currentRoleIndex != null) {

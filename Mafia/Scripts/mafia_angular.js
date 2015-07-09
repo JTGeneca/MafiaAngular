@@ -5,9 +5,9 @@ myApp.factory("MafiaRole", function () {
         this.Id = id;
         this.Name = name;
         this.Url = imgSrc;
-        this.isSelected = true;
+        this.IsSelected = true;
         this.Count = 0;
-        this.playerName = "";
+        this.PlayerName = "";
     };
 });
 
@@ -54,22 +54,23 @@ myApp.controller("MafiaCtrl", function ($scope, MafiaRole, $http) {
 
     $scope.roleClick = function (role, idx) {
         if (currentRoleIndex != null) {
-            $scope.roles[currentRoleIndex].isSelected = false;
+            $scope.roles[currentRoleIndex].IsSelected = false;
         }
         currentRoleIndex = idx;
-        role.isSelected = true;
+        role.IsSelected = true;
         $scope.activeRole = role;
     }
     $scope.saveClick = function () {
         if (currentRoleIndex != null) {
             var role = new MafiaRole($scope.activeRole.Name, $scope.activeRole.Url, $scope.roles[currentRoleIndex].Id);
+            console.log(role);
             $http.post("/API/Mafia", role);
             $scope.roles[currentRoleIndex] = role;
         }
     }
     $scope.addClick = function () {
         if (currentRoleIndex != null) {
-            $scope.roles[currentRoleIndex].isSelected = false;
+            $scope.roles[currentRoleIndex].IsSelected = false;
         }
         var role = new MafiaRole("New Entry Name", "https://lh4.ggpht.com/C_y-hm52-BG_Dmd2mp1ZzBSHkziGPYZg1EnGwO5NCkkVVRfdg52KEna2MjgSHW4R5-U=w300", $scope.curId);
         currentRoleIndex = $scope.roles.length;
@@ -89,7 +90,7 @@ myApp.controller("MafiaCtrl", function ($scope, MafiaRole, $http) {
     }
     $scope.suggestClick = function (role, idx) {
         if (currentRoleIndex != null) {
-            $scope.roles[currentRoleIndex].isSelected = false;
+            $scope.roles[currentRoleIndex].IsSelected = false;
         }
         $scope.activeRole = role;
         role.Id = $scope.curId;

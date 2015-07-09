@@ -25,11 +25,7 @@ namespace MafiaRepository
         public bool IsIdUsed(int id)
         {
             var role = _repo.SingleOrDefault<MafiaRole>((m) => m.Id == id);
-            if (role != null)
-            {
-                return true;
-            }
-            return false;
+            return role != null;
         }
 
         public void DeleteRole(int id)

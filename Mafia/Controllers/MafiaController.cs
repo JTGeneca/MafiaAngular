@@ -4,6 +4,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using System.Web.Http.Cors;
 using GameData;
 using MafiaData;
 using MafiaRepository.Interfaces;
@@ -12,7 +13,7 @@ using MafiaRepository;
 
 namespace Mafia.Controllers
 {
-
+    [EnableCors(origins: "http://mywebclient.azurewebsites.net", headers: "*", methods: "*")]
     public class MafiaController : ApiController
     {
         public MafiaRepository.MafiaRepository MafiaRepo;

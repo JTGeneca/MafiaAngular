@@ -4,6 +4,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using GameData;
 using MafiaData;
 using MafiaRepository.Interfaces;
 using MafiaRepository;
@@ -16,15 +17,15 @@ namespace Mafia.Controllers
     {
         public MafiaRepository.MafiaRepository MafiaRepo;
 
-        public MafiaController(global::MafiaRepository.MafiaRepository mafRepository)
+        public MafiaController(MafiaRepository.MafiaRepository mafRepository)
         {
             MafiaRepo = mafRepository;
         }
 
         // GET: api/Mafia
-        public MafiaRole[] Get()
+        public Game[] Get()
         {
-            return MafiaRepo.GetAllRoles();
+            return MafiaRepo.GetAllGames();
         }
 
         // GET: api/Mafia/5
@@ -34,13 +35,13 @@ namespace Mafia.Controllers
         }
 
         // POST: api/Mafia
-        public void Post(MafiaRole role)
+        public void Post(Game game)
         {
-            if (MafiaRepo.IsIdUsed(role.Id))
+            if (MafiaRepo.IsIdUsed(game.Id))
             {
-                MafiaRepo.DeleteRole(role.Id);
+                MafiaRepo.DeleteGame(game.Id);
             }
-            MafiaRepo.AddRole(role);
+            MafiaRepo.AddGame(game);
         }
 
         // PUT: api/Mafia/5
@@ -51,7 +52,7 @@ namespace Mafia.Controllers
         // DELETE: api/Mafia/5
         public void Delete(int id)
         {
-            MafiaRepo.DeleteRole(id);
+            MafiaRepo.DeleteGame(id);
         }
     }
 }

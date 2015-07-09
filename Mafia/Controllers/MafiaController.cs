@@ -12,7 +12,7 @@ using MafiaRepository;
 
 namespace Mafia.Controllers
 {
-    [AllowCrossSiteJson]
+
     public class MafiaController : ApiController
     {
         public MafiaRepository.MafiaRepository MafiaRepo;

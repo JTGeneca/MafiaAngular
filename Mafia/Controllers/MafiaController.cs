@@ -34,9 +34,9 @@ namespace Mafia.Controllers
         }
 
         // GET: api/Mafia/5
-        public string Get(int id)
+        public Game Get(int id)
         {
-            return "value";
+            return MafiaRepo.GetGame(id);
         }
 
         // POST: api/Mafia

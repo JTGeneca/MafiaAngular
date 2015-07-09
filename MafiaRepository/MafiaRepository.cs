@@ -27,6 +27,11 @@ namespace MafiaRepository
         {
             _repo.Delete<Game>((g) => g.Id == id);
         }
+
+        public Game GetGame(int id)
+        {
+            return _repo.SingleOrDefault<Game>((g) => g.Id == id);
+        }
         public Game[] GetAllGames()
         {
             return _repo.All<Game>().ToArray();

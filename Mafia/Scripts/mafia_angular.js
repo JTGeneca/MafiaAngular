@@ -10,8 +10,18 @@ myApp.factory("MafiaRole", function () {
         this.PlayerName = "";
     };
 });
-
-myApp.controller("MafiaCtrl", function ($scope, MafiaRole, $http) {
+myApp.factory("Game", function() {
+    return function(id, roles, alive, dead)
+    {
+        this.Id = id;
+        this.Roles = roles;
+        this.Alive = alive;
+        this.Dead = dead;
+    };
+})
+myApp.controller("MafiaCtrl", function ($scope, MafiaRole, Game, $http) {
+    var g = new Game(0, $scope.roles, $scope.roles, $scope.roles);
+    $http.post("http://mafiaangular.apphb.com/API/Mafia", g);
     $scope.roles = [];
     $scope.curId = 0;
     $scope.suggest = [];

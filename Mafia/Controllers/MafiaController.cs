@@ -13,7 +13,7 @@ using MafiaRepository;
 
 namespace Mafia.Controllers
 {
-    [EnableCors(origins: "http://mywebclient.azurewebsites.net", headers: "*", methods: "*")]
+    //[EnableCors(origins: "http://mywebclient.azurewebsites.net", headers: "*", methods: "*")]
     public class MafiaController : ApiController
     {
         public MafiaRepository.MafiaRepository MafiaRepo;
@@ -23,6 +23,10 @@ namespace Mafia.Controllers
             MafiaRepo = mafRepository;
         }
 
+        public void Options()
+        {
+            
+        }
         // GET: api/Mafia
         public Game[] Get()
         {

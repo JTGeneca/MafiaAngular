@@ -93,6 +93,10 @@
     <Content Include="WebActivator.dll" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\GameData\GameData.csproj">
+      <Project>{7d23c5bf-ac6e-4233-840c-6fd3c5a9bdad}</Project>
+      <Name>GameData</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MafiaData\MafiaData.csproj">
       <Project>{cc6f3d24-4047-4a27-82d0-a6d81db5ac57}</Project>
       <Name>MafiaData</Name>

@@ -15,9 +15,10 @@ namespace GameData
         public MafiaRole[] Dead { get; set; }
         public string[] Players { get; set; }
         public int Formals { get; set; }
+        public int[] FormalArray { get; set; }
 
         
-        public Game(int id, MafiaRole[] roles, MafiaRole[] alive, MafiaRole[] dead, string[] player, int formals)
+        public Game(int id, MafiaRole[] roles, MafiaRole[] alive, MafiaRole[] dead, string[] player, int formals, int[] formalArray)
         {
             this.Id = id;
             this.Roles = roles;
@@ -25,6 +26,7 @@ namespace GameData
             this.Dead = dead;
             this.Players = player;
             this.Formals = formals;
+            this.FormalArray = formalArray;
         }
     }
 }

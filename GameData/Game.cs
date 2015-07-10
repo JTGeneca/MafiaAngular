@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Dynamic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,9 +17,10 @@ namespace GameData
         public string[] Players { get; set; }
         public int Formals { get; set; }
         public int[] FormalArray { get; set; }
+        public bool[] Votes { get; set; }
 
         
-        public Game(int id, MafiaRole[] roles, MafiaRole[] alive, MafiaRole[] dead, string[] player, int formals, int[] formalArray)
+        public Game(int id, MafiaRole[] roles, MafiaRole[] alive, MafiaRole[] dead, string[] player, int formals, int[] formalArray, bool[] votes)
         {
             this.Id = id;
             this.Roles = roles;
@@ -27,6 +29,7 @@ namespace GameData
             this.Players = player;
             this.Formals = formals;
             this.FormalArray = formalArray;
+            this.Votes = votes;
         }
     }
 }

@@ -14,14 +14,17 @@ namespace GameData
         public MafiaRole[] Alive { get; set; }
         public MafiaRole[] Dead { get; set; }
         public string[] Players { get; set; }
+        public int Formals { get; set; }
+
         
-        public Game(int id, MafiaRole[] roles, MafiaRole[] alive, MafiaRole[] dead, string[] player)
+        public Game(int id, MafiaRole[] roles, MafiaRole[] alive, MafiaRole[] dead, string[] player, int formals)
         {
             this.Id = id;
             this.Roles = roles;
             this.Alive = alive;
             this.Dead = dead;
             this.Players = player;
+            this.Formals = formals;
         }
     }
 }

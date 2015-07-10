@@ -17,10 +17,10 @@ namespace GameData
         public string[] Players { get; set; }
         public int Formals { get; set; }
         public int[] FormalArray { get; set; }
-        public bool[] Votes { get; set; }
+        public int[] Votes { get; set; }
 
         
-        public Game(int id, MafiaRole[] roles, MafiaRole[] alive, MafiaRole[] dead, string[] player, int formals, int[] formalArray, bool[] votes)
+        public Game(int id, MafiaRole[] roles, MafiaRole[] alive, MafiaRole[] dead, string[] player, int formals, int[] formalArray, int[] votes)
         {
             this.Id = id;
             this.Roles = roles;

@@ -18,9 +18,10 @@ namespace GameData
         public int Formals { get; set; }
         public int[] FormalArray { get; set; }
         public int[] Votes { get; set; }
+        public NightResults[] Results { get; set; }
 
         
-        public Game(int id, MafiaRole[] roles, MafiaRole[] alive, MafiaRole[] dead, string[] player, int formals, int[] formalArray, int[] votes)
+        public Game(int id, MafiaRole[] roles, MafiaRole[] alive, MafiaRole[] dead, string[] player, int formals, int[] formalArray, int[] votes, NightResults[] results)
         {
             this.Id = id;
             this.Roles = roles;
@@ -30,6 +31,21 @@ namespace GameData
             this.Formals = formals;
             this.FormalArray = formalArray;
             this.Votes = votes;
+            this.Results = results;
+        }
+    }
+
+    public class NightResults
+    {
+        public int Mafia { get; set; }
+        public int Doctor { get; set; }
+        public int PlayerIdx { get; set; }
+
+        public NightResults()
+        {
+            this.Mafia = 0;
+            this.Doctor = 0;
+            this.PlayerIdx = 0;
         }
     }
 }

@@ -40,11 +40,13 @@ namespace GameData
         public int Mafia { get; set; }
         public int Doctor { get; set; }
         public int PlayerIdx { get; set; }
+        public int SerialKiller {get; set; }
 
         public NightResults()
         {
             this.Mafia = 0;
             this.Doctor = 0;
+            this.SerialKiller = 0;
             this.PlayerIdx = 0;
         }
     }
